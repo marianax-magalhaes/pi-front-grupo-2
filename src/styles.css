@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Allura&family=Architects+Daughter&display=swap");
+
 * {
     box-sizing: border-box;
 }
@@ -19,3 +20,4 @@ article {
     max-width: 100%;
     margin: 0 auto;
 }
+
