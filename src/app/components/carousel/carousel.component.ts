@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
+  images = [
+    {
+      path: '../assets/Imagens/Carrossel.jpeg'
+    },
+    {
+      path: '../assets/Imagens/Marmore_rosa.jpg'
+    },
+    {
+      path: '../assets/Imagens/receita-de-docinho-de-morango.jpg'
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

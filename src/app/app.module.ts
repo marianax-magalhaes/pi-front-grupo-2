@@ -8,6 +8,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProductComponent } from './components/product/product.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { ListProductsComponent } from './components/list-products/list-products.
     CarouselComponent,
     AboutComponent,
     ProductComponent,
-    ListProductsComponent
+    ListProductsComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IvyCarouselModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
