@@ -1,0 +1,35 @@
+article {
+  /* Tamanho suficiente para 3 produtos por linha */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+article .docinho_informacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 33%;
+}
+
+article .docinho_informacoes .docinho {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 12em;
+  height: 12em;
+  overflow: hidden;
+  position: relative;
+
+  border: 0.8em solid #dc969c;
+}
+
+article .docinho_informacoes .docinho img {
+  height: 12em;
+  width: 12em;
+  object-fit: cover;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

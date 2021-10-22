@@ -1,8 +1,11 @@
 section.produtos {
-    height: 24em;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: 0 0 4em 0;
+}
+
+h2 {
+  font-family: "Allura", sans-serif;
+  text-align: center;
+  font-size: 3.6em;
 }

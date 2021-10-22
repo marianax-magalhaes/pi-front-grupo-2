@@ -26,8 +26,18 @@ footer article .informacoes .contato {
   align-items: center;
 }
 
+footer article .informacoes .contato figure {
+  margin: 0;
+  padding: 0;
+}
+
 footer article .informacoes .contato figure img {
   width: 13em;
+}
+
+footer article .informacoes .contato ul {
+  margin: 0;
+  padding: 0;
 }
 
 footer article .informacoes .contato ul li {
@@ -54,7 +64,7 @@ footer article .informacoes .mapa iframe {
   height: 60%;
 
   border: none;
-  border-radius: 50px;
+  border-radius: 20px;
 }
 
 footer p {
