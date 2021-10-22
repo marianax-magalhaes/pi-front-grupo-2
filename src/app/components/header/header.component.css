@@ -1,0 +1,51 @@
+
+
+header{
+    /* width: 100%;
+    height:100%; */
+    background-color: #DC969C;
+    max-width: 100%;
+}
+
+header .container{ 
+    /* codigo abaixo deixa a logo no centro */
+    justify-content: center;
+    text-align: center;
+}
+/* Referente as imagens de Whats e Inst */
+
+header  article .contatos {
+    display:flex; 
+    justify-content: flex-end;
+    align-self:flex-end;
+    margin: 0 4em 0em 0em;
+} 
+
+header .contatos img{
+    width: 3.5em;
+}
+
+/* Referente as imagens da Logo */
+
+header .logo img{
+    width: 30em;
+    height: 20em;
+}
+
+/* Referente as imagens de história, cardapio .... */
+
+header .container nav {
+    display: flex;
+    justify-content: center;
+    text-align: center;  
+}  
+
+header .container nav a{
+    color: #ffff;
+    font-family: 'Architects Daughter';
+    font-size: 3em;
+    text-decoration: none;
+    width: 8.4em;
+    height: 0em;
+    padding: 2em 2em 2em 2em;
+} 
