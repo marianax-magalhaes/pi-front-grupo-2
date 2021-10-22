@@ -1,0 +1,51 @@
+article {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+article .docinho {
+    /* Tamanho suficiente para 3 produtos por linha */
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+}
+
+article .docinho figure {
+    margin: 0;
+    padding: 0;
+}
+
+article .docinho figure img {
+    width: 16em;
+}
+
+article .docinho h3 {
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+article .docinho .saiba_mais {
+    margin: 1em 0 3em 0;
+    padding: 0;
+    border: none;
+    border-radius: 2em;
+    height: 3em;
+    width: 8em;
+    color: #ffffff;
+    font-size: 1.4em;
+    font-weight: 600;
+    font-family: "Architects Daughter", sans-serif;
+    background-color: #ff6584;
+    cursor: pointer;
+}
+        /* <img src="assets/Imagens/Beijinho_borda.PNG" alt="Beijinho">
+    </figure>
+    <h3>Beijinho</h3>
+    <button>Saiba mais</button>
+
+</article> */
