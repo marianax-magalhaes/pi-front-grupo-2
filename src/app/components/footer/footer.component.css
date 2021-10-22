@@ -72,3 +72,13 @@ footer p {
   text-align: center;
   color: #ffffff;
 }
+
+footer article .informacoes .contato ul {
+  margin: 0;
+  padding: 0;
+}
+
+footer article .informacoes .contato figure {
+  margin: 0;
+  padding: 0;
+}
