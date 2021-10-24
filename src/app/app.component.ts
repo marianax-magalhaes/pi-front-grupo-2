@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'salomdoces';
+
+
+  mostrandoModal = false;
+
+  mostrarModal(){
+    this.mostrandoModal = true;
+  }
+  esconderModal(){
+    this.mostrandoModal = false;
+  }
 }
