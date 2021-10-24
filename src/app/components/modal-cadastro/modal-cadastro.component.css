@@ -1,4 +1,4 @@
-#modal {
+#modal2 {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,38 +13,38 @@
     transition: opacity 3s linear;
 }
 
-#modal form {
+#modal2 form {
     background-color: #fff;
     padding: 40px;
     box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.3);
     width: 400px;
 }
 
-#modal form input {
+#modal2 form input {
     display: block;
     width: 100%;
 }
 
-#modal form div {
+#modal2 form div {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-#modal form div input {
+#modal2 form div input {
     display: inline-block;
     margin-right: 10px;
 }
 
-#modal form div a.remove {
+#modal2 form div a.remove {
     color: #C00;
 }
 
-#modal form div a.remove:hover {
+#modal2 form div a.remove:hover {
     color: rgb(252, 7, 7);
 }
 
-#modal form .controles {
+#modal2 form .controles {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;

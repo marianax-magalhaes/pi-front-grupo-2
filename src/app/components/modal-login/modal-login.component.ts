@@ -9,6 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ModalLoginComponent implements OnInit {
 
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
+  @Output() onCadastrarClick:EventEmitter<null> = new EventEmitter();
 
 
   constructor() { }
@@ -17,7 +18,12 @@ export class ModalLoginComponent implements OnInit {
   }
 
   cancelar(){
-    this.onCancelarClick.emit()
+    this.onCancelarClick.emit();
+  }
+
+  cadastrar(){
+    this.onCadastrarClick.emit();
+    this.onCancelarClick.emit();
   }
 
 }

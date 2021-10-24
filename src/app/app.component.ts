@@ -9,12 +9,22 @@ export class AppComponent {
   title = 'salomdoces';
 
 
-  mostrandoModal = false;
+  mostrandoLogin = false;
+  mostrandoCadastro = false;
 
-  mostrarModal(){
-    this.mostrandoModal = true;
+  mostrarLogin(){
+    this.mostrandoLogin = true;
   }
-  esconderModal(){
-    this.mostrandoModal = false;
+  esconderLogin(){
+    this.mostrandoLogin = false;
   }
+  mostrarCadastro(){
+    this.mostrandoLogin = false;
+    this.mostrandoCadastro = true;
+  }
+
+  esconderCadastro(){
+    this.mostrandoCadastro = false;
+  }
+
 }
