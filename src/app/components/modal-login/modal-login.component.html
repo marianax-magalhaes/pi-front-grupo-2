@@ -1,0 +1,19 @@
+<section id="modal">
+    <form>
+
+        <label>
+            E-mail ou nome de usuário
+            <input type="email" name="email" id="email">
+        </label>
+        <label>
+            Senha
+            <input type="text" name="senha" id="senha" >
+        </label>
+
+        <div class="controles">
+            <button type="button" class="link" (click)="cancelar()">Cancelar</button>
+
+            <button type="button" (click)="cadastrar()">Criar nova conta</button>
+        </div>
+    </form>
+</section>

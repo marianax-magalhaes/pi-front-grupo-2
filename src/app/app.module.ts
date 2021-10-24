@@ -9,6 +9,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ProductComponent } from './components/product/product.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { ModalLoginComponent } from './components/modal-login/modal-login.component';
+import { ModalCadastroComponent } from './components/modal-cadastro/modal-cadastro.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     AboutComponent,
     ProductComponent,
     ListProductsComponent,
+    ModalLoginComponent,
+    ModalCadastroComponent,
     
   ],
   imports: [

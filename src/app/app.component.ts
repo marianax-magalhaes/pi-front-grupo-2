@@ -7,4 +7,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'salomdoces';
+
+
+  mostrandoLogin = false;
+  mostrandoCadastro = false;
+
+  mostrarLogin(){
+    this.mostrandoLogin = true;
+  }
+  esconderLogin(){
+    this.mostrandoLogin = false;
+  }
+  mostrarCadastro(){
+    this.mostrandoLogin = false;
+    this.mostrandoCadastro = true;
+  }
+
+  esconderCadastro(){
+    this.mostrandoCadastro = false;
+  }
+
 }

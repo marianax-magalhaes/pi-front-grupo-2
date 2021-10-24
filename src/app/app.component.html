@@ -1,6 +1,7 @@
-
+<app-header (onAddContatoClick)="mostrarLogin()"></app-header>
+<app-modal-login (onCancelarClick)="esconderLogin()" (onCadastrarClick)="mostrarCadastro()" *ngIf="mostrandoLogin"></app-modal-login>
+<app-modal-cadastro *ngIf="mostrandoCadastro" (onCancelarClick)="esconderCadastro()"></app-modal-cadastro>
 <app-carousel></app-carousel>
 <app-about></app-about>
 <app-list-products></app-list-products>
 <app-footer></app-footer>
-
