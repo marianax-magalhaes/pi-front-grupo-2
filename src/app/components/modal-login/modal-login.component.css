@@ -16,7 +16,7 @@
 #modal article {
   width: 30em;
   background-color: #ffffff;
-  height: 36em;
+  height: 31em;
 
   border-radius: 4em;
   border: 0.5em solid #ff6584;
@@ -47,7 +47,7 @@
 }
 
 #modal article form label {
-  font-size: 1.4em;
+  font-size: 1.1em;
 }
 
 #modal article form input {
