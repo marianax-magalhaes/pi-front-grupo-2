@@ -1,52 +1,93 @@
-#modal2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(6px);
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 3s linear;
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s linear;
 }
 
-#modal2 form {
-    background-color: #fff;
-    padding: 40px;
-    box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.3);
-    width: 400px;
+#modal article {
+  width: 30em;
+  background-color: #ffffff;
+  height: 46em;
+
+  border-radius: 4em;
+  border: 0.5em solid #ff6584;
 }
 
-#modal2 form input {
-    display: block;
-    width: 100%;
+#modal article figure {
+  display: flex;
+  justify-content: center;
 }
 
-#modal2 form div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+#modal article figure img {
+  width: 14em;
 }
 
-#modal2 form div input {
-    display: inline-block;
-    margin-right: 10px;
+#modal article .fechar {
+  width: 1em;
+  cursor: pointer;
+
+  position: relative;
+  left: 26em;
+  top: 2em;
 }
 
-#modal2 form div a.remove {
-    color: #C00;
+#modal article form {
+  background-color: #ffffff;
+  width: 26em;
+  margin: 0 auto;
 }
 
-#modal2 form div a.remove:hover {
-    color: rgb(252, 7, 7);
+#modal article form label {
+  font-size: 1.4em;
 }
 
-#modal2 form .controles {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-    margin-bottom: 0;
+#modal article form input {
+  width: 100%;
+  margin: 0 0 0.4em 0;
+  background-color: #fedada;
+
+  border: none;
+  padding: 0.4em;
+  border-radius: 1em;
+
+  font-size: 1em;
+  color: #4a4949;
+  font-family: "Architects Daughter", sans-serif;
+
+  display: block;
+}
+
+#modal article form .controles {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#modal article form button {
+  color: #ffffff;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 1.4em;
+
+  background-color: #ff6584;
+  border: none;
+  border-radius: 1em;
+
+  margin: 1em 0;
+  padding: 0.4em;
+}
+
+#modal article form p {
+  font-size: 1.4em;
+  margin: 0;
+
+  cursor: pointer;
 }
