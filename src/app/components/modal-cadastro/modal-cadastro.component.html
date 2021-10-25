@@ -1,27 +1,39 @@
-<section id="modal2">
+<section id="modal">
+  <article>
+    <img
+      class="fechar"
+      (click)="cancelar()"
+      src="assets\Imagens\close.png"
+      alt="Botão de fechar aba"
+    />
+
+    <figure>
+      <img
+        src="assets\Imagens\salom_logo_rosa.png"
+        alt="Logo Salom (uma fatia de bolo)"
+      />
+    </figure>
     <form>
+      <label>
+        Nome de usuário
+        <input type="name" name="name" id="name" />
+      </label>
+      <label>
+        E-mail
+        <input type="email" name="email" id="email" />
+      </label>
+      <label>
+        Senha
+        <input type="password" name="senha" id="senha" />
+      </label>
+      <label>
+        Confirmar senha
+        <input type="password" name="senha" id="senha" />
+      </label>
 
-        <label>
-            E-mail ou nome de usuário
-            <input type="email" name="email" id="email">
-        </label>
-        <label>
-            Senha
-            <input type="text" name="senha" id="senha" >
-        </label>
-        <label>
-            E-mail ou nome de usuário
-            <input type="email" name="email" id="email">
-        </label>
-        <label>
-            Senha
-            <input type="text" name="senha" id="senha" >
-        </label>
-
-        <div class="controles">
-            <button type="button" class="link" (click)="cancelar()">Cancelar</button>
-
-            <button type="button">Cadastrar-se</button>
-        </div>
+      <div class="controles">
+        <button>Cadastrar</button>
+      </div>
     </form>
+  </article>
 </section>
