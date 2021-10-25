@@ -11,6 +11,8 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { ModalLoginComponent } from './components/modal-login/modal-login.component';
 import { ModalCadastroComponent } from './components/modal-cadastro/modal-cadastro.component';
+import { AtualizarCadastroComponent } from './components/atualizar-cadastro/atualizar-cadastro.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { ModalCadastroComponent } from './components/modal-cadastro/modal-cadast
     ListProductsComponent,
     ModalLoginComponent,
     ModalCadastroComponent,
+    AtualizarCadastroComponent,
+    HomeComponent,
     
   ],
   imports: [
