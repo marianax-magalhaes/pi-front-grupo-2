@@ -11,6 +11,8 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { ModalLoginComponent } from './components/modal-login/modal-login.component';
 import { ModalCadastroComponent } from './components/modal-cadastro/modal-cadastro.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { ModalCadastroComponent } from './components/modal-cadastro/modal-cadast
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]
