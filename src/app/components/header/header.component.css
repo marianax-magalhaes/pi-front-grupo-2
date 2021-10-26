@@ -16,21 +16,23 @@ header article .contatos {
   display: flex;
   justify-content: flex-end;
   align-self: flex-end;
-  margin: 0 4em 0em 0em;
 }
 
 header article .contatos img {
-  width: 3.5em;
+  width: 2.4em;
 }
 
 /* Referente as imagens da Logo */
 
 header article .logo img {
-  width: 20em;
+  width: 14em;
 }
 
 /* Referente as imagens de história, cardapio .... */
 
+header article .navegacao {
+  height: 4em;
+}
 header article nav {
   width: 100%;
   display: flex;
@@ -44,8 +46,11 @@ header article nav a {
   font-size: 2.5em;
   text-decoration: none;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
 }
 
 header article nav a img {
-  width: 1.4em;
+  width: 1.2em;
 }
