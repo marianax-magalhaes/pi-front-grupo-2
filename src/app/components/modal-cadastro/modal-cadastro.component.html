@@ -5,26 +5,26 @@
         <figure>
             <img src="assets\Imagens\salom_logo_rosa.png" alt="Logo Salom (uma fatia de bolo)" />
         </figure>
-        <form>
+        <form #clientePost="ngForm" (ngSubmit)="onSubmit(clientePost.value)">
             <label>
         Nome completo
-        <input type="name" name="name" id="name" />
+        <input type="nome" name="nome" id="nome" ngModel />
       </label>
             <label>
         E-mail
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" ngModel />
       </label>
             <label>
         Senha
-        <input type="password" name="senha" id="senha" />
+        <input type="password" name="senha" id="senha" ngModel />
       </label>
             <label>
         Confirmar senha
-        <input type="password" name="senha" id="senha" />
+        <input type="confirmation" name="confirmacao" id="confirmacao"/>
       </label>
 
             <div class="controles">
-                <button>Cadastrar</button>
+                <button type="submit">Cadastrar</button>
             </div>
         </form>
     </article>
