@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { AtualizarCadastroComponent } from './components/atualizar-cadastro/atualizar-cadastro.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -32,12 +34,13 @@ import { HomeComponent } from './components/home/home.component';
     ModalCadastroComponent,
     AtualizarCadastroComponent,
     HomeComponent,
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     IvyCarouselModule,
+    FormsModule, 
+    ReactiveFormsModule
     HttpClientModule,
     FormsModule
   ],
