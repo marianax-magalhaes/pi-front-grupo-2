@@ -2,7 +2,8 @@ section.historia {
   background-image: url("src\assets\Imagens\Marmore_rosa.jpg");
 
   width: 100%;
-  height: 30em;
+  height: 100%;
+  margin: 1.5em 0 3em 0;
 }
 
 section.historia article {
@@ -18,7 +19,6 @@ section.historia article {
 
 section.historia article .materia_historia {
   width: 50%;
-  height: 100%;
 }
 
 section.historia article h2 {
@@ -30,7 +30,6 @@ section.historia article h2 {
 
 section.historia article .imagem_historia {
   width: 50%;
-  height: 100%;
 }
 
 section.historia article .imagem_historia figure img {
@@ -40,4 +39,24 @@ section.historia article .imagem_historia figure img {
 section.historia article .materia_historia p {
   font-size: 1.7em;
   text-align: center;
+}
+
+@media (max-width: 979px) {
+  section.historia article {
+    flex-wrap: wrap-reverse;
+  }
+
+  section.historia article .materia_historia,
+  section.historia article .imagem_historia {
+    width: 90%;
+  }
+
+  section.historia article .imagem_historia figure {
+    display: flex;
+    justify-content: center;
+  }
+
+  section.historia article .imagem_historia figure img {
+    width: 80%;
+  }
 }

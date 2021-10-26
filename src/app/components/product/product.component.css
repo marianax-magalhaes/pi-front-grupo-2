@@ -54,3 +54,15 @@ article .docinho_informacoes .saiba_mais {
   background-color: #ff6584;
   cursor: pointer;
 }
+
+@media (max-width: 979px) {
+  article .docinho_informacoes {
+    width: 33%;
+  }
+}
+
+@media (max-width: 779px) {
+  article .docinho_informacoes {
+    width: 50%;
+  }
+}

@@ -9,8 +9,8 @@ footer {
 }
 
 footer article .informacoes {
-  height: 20em;
   width: 100%;
+  height: 20em;
 
   display: flex;
   flex-direction: row;
@@ -61,7 +61,7 @@ footer article .informacoes .mapa {
 
 footer article .informacoes .mapa iframe {
   width: 86%;
-  height: 60%;
+  height: 68%;
 
   border: none;
   border-radius: 20px;
@@ -73,12 +73,55 @@ footer p {
   color: #ffffff;
 }
 
-footer article .informacoes .contato ul {
-  margin: 0;
-  padding: 0;
+@media (max-width: 979px) {
+  footer {
+    height: 24em;
+  }
+
+  footer article .informacoes {
+    flex-direction: column;
+  }
+
+  footer article .informacoes .contato {
+    width: 100%;
+  }
+
+  footer article .informacoes .mapa {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  footer article .informacoes .mapa iframe {
+    height: 10em;
+    width: 60%;
+  }
+
+  footer article p {
+    width: 100%;
+  }
 }
 
-footer article .informacoes .contato figure {
-  margin: 0;
-  padding: 0;
+@media (max-width: 779px) {
+  footer {
+    width: 100%;
+    height: 34em;
+  }
+
+  footer article .informacoes .contato {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer article .informacoes .contato ul {
+    margin: 0 0 1em 0;
+  }
+
+  footer article .informacoes .contato ul li {
+    text-align: center;
+  }
+
+  footer article .informacoes .mapa iframe {
+    width: 100%;
+  }
 }

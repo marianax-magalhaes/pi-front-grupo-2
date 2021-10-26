@@ -1,0 +1,103 @@
+article {
+  height: 100%;
+  margin: 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+article form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+article form label {
+  font-size: 1.4em;
+}
+
+article form input {
+  width: 100%;
+  margin: 0 0 0.4em 0;
+  background-color: #fedada;
+
+  border: none;
+  padding: 0.4em;
+  border-radius: 1em;
+
+  font-size: 1em;
+  color: #4a4949;
+  font-family: "Architects Daughter", sans-serif;
+
+  display: block;
+  text-align: center;
+}
+
+article form h2 {
+  margin: 1em 0 0.5em 0;
+}
+
+article form .contato {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+article form .contato .ddd {
+  width: 8%;
+  margin: 0 0.5em 0 0;
+}
+
+article form .contato .telefone,
+article form .contato .tipo {
+  width: 46%;
+}
+
+article form .contato .telefone {
+  margin: 0 0.5em 0 0;
+}
+
+article form .endereco {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+article form .endereco .logradouro {
+  width: 88%;
+  margin: 0 0.5em 0 0;
+}
+
+article form .endereco .numero {
+  width: 10%;
+}
+
+article form .endereco .complemento,
+article form .endereco .tipo {
+  width: 48.5%;
+}
+
+article form .endereco .complemento {
+  margin: 0 1em 0 0;
+}
+
+article form .controles {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+article form button {
+  color: #ffffff;
+  font-family: "Architects Daughter", sans-serif;
+  font-size: 1.4em;
+
+  background-color: #ff6584;
+  border: none;
+  border-radius: 1em;
+
+  margin: 2em 0;
+  padding: 0.4em;
+
+  cursor: pointer;
+}

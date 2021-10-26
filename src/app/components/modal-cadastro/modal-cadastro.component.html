@@ -1,27 +1,35 @@
 <section id="modal">
-    <article>
-        <img class="fechar" (click)="cancelar()" src="assets\Imagens\close.png" alt="Botão de fechar aba" />
+  <article>
+    <img
+      class="fechar"
+      (click)="cancelar()"
+      src="assets\Imagens\close.png"
+      alt="Botão de fechar aba"
+    />
+
 
         <figure>
             <img src="assets\Imagens\salom_logo_rosa.png" alt="Logo Salom (uma fatia de bolo)" />
         </figure>
         <form #clientePost="ngForm" (ngSubmit)="onSubmit(clientePost.value)">
             <label>
+
         Nome completo
         <input type="nome" name="nome" id="nome" ngModel />
       </label>
-            <label>
+      <label>
         E-mail
         <input type="email" name="email" id="email" ngModel />
       </label>
-            <label>
+      <label>
         Senha
         <input type="password" name="senha" id="senha" ngModel />
       </label>
-            <label>
+      <label>
         Confirmar senha
         <input type="confirmation" name="confirmacao" id="confirmacao"/>
       </label>
+
 
             <div class="controles">
                 <button type="submit">Cadastrar</button>
@@ -29,3 +37,4 @@
         </form>
     </article>
 </section>
+
