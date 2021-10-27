@@ -12,7 +12,7 @@ article form {
 }
 
 article form label {
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
 article form input {
@@ -24,16 +24,16 @@ article form input {
   padding: 0.4em;
   border-radius: 1em;
 
-  font-size: 1em;
+  font-size: 1.4em;
   color: #4a4949;
   font-family: "Architects Daughter", sans-serif;
 
   display: block;
-  text-align: center;
 }
 
 article form h2 {
   margin: 1em 0 0.5em 0;
+  font-size: 1.6em;
 }
 
 article form .contato {
@@ -43,13 +43,13 @@ article form .contato {
 }
 
 article form .contato .ddd {
-  width: 8%;
+  width: 14%;
   margin: 0 0.5em 0 0;
 }
 
 article form .contato .telefone,
 article form .contato .tipo {
-  width: 46%;
+  width: 43%;
 }
 
 article form .contato .telefone {
@@ -64,12 +64,17 @@ article form .endereco {
 }
 
 article form .endereco .logradouro {
-  width: 88%;
+  width: 84%;
   margin: 0 0.5em 0 0;
 }
 
 article form .endereco .numero {
-  width: 10%;
+  width: 14%;
+}
+
+article form .contato .ddd input,
+article form .endereco .numero input {
+  text-align: center;
 }
 
 article form .endereco .complemento,
@@ -94,10 +99,14 @@ article form button {
 
   background-color: #ff6584;
   border: none;
-  border-radius: 1em;
+  border-radius: 1.4em;
 
+  padding: 0.6em;
   margin: 2em 0;
-  padding: 0.4em;
 
   cursor: pointer;
+}
+
+.invalid-feedback {
+  font-size: 1.1em;
 }

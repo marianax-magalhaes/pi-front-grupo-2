@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
+import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl} from '@angular/forms';
+
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -21,16 +23,20 @@ export class ModalLoginComponent implements OnInit {
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
   @Output() onCadastrarClick:EventEmitter<null> = new EventEmitter();
 
-  form = new FormGroup({
-    email: new FormControl('', [Validators.required,
-    Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)])
-  })
+  form: FormGroup;
+  submitted = false;
+
   constructor(
     private service:ClienteService,
-    private router:Router
+    private router:Router,
+    private formBuilder: FormBuilder
     ) { }
+
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30)]],
+    });
   }
 
   cancelar(){
@@ -42,15 +48,19 @@ export class ModalLoginComponent implements OnInit {
     this.onCancelarClick.emit();
   }
 
-  get f(){
+
+  get f(): {[key: string]: AbstractControl} {
     return this.form.controls;
-  }
 
-  submit(){
-    console.log(this.form.value);
-  }
-
+    
   onSubmit(cliente:any){
+    this.submitted = true;
+    
+    if (this.form.invalid) {
+      return;
+    }
+    
+    console.log(JSON.stringify(this.form.value, null, 2));
     console.log(cliente);
     
     this.service.logarCliente(cliente).subscribe(
@@ -64,12 +74,7 @@ export class ModalLoginComponent implements OnInit {
       error: err => console.log(err),
       complete: () => console.log("Observável finalizado")
       });
-  }
 
   }
-
-  
-
-
-
-
+ 
+}
