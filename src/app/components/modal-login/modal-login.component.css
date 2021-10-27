@@ -28,10 +28,10 @@
 }
 
 #modal article figure img {
-  width: 14em;
+  width: 7em;
 }
 
-#modal article .fechar {
+#modal .fechar {
   width: 1em;
   cursor: pointer;
 
@@ -59,7 +59,7 @@
   padding: 0.4em;
   border-radius: 1em;
 
-  font-size: 1em;
+  font-size: 1.2em;
   color: #4a4949;
   font-family: "Architects Daughter", sans-serif;
 
@@ -83,6 +83,8 @@
 
   margin: 1em 0;
   padding: 0.4em;
+
+  cursor: pointer;
 }
 
 #modal article form p {
@@ -90,4 +92,8 @@
   margin: 0;
 
   cursor: pointer;
+}
+
+.invalid-feedback {
+  font-size: 1em;
 }

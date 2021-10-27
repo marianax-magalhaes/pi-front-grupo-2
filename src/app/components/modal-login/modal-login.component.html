@@ -13,18 +13,49 @@
         alt="Logo Salom (uma fatia de bolo)"
       />
     </figure>
-    <form>
-      <label> E-mail </label>
-      <input type="email" name="email" id="email" />
 
-      <label> Senha </label>
-      <input type="password" name="senha" id="senha" />
+    <div class="register-form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label> E-mail </label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">E-mail inválido</div>
+            <div *ngIf="f.email.errors.email">E-mail inválido</div>
+          </div>
+        </div>
 
-      <div class="controles">
-        <p type="button" (click)="cadastrar()">Criar uma conta</p>
+        <div class="form-group">
+          <label> Senha </label>
+          <input
+            type="password"
+            formControlName="senha"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.senha.errors }"
+          />
 
-        <button>Entrar</button>
-      </div>
-    </form>
+          <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">
+            <div *ngIf="f.senha.errors.required">Senha inválida</div>
+            <div *ngIf="f.senha.errors.minlength">
+              Senha precisa ter, pelo menos, 8 caracteres
+            </div>
+            <div *ngIf="f.senha.errors.maxlength">
+              Senha precisa ter, no máximo, 30 caracteres
+            </div>
+          </div>
+        </div>
+
+        <div class="controles">
+          <p type="button" (click)="cadastrar()">Criar uma conta</p>
+
+          <button type="submit">Entrar</button>
+        </div>
+      </form>
+    </div>
   </article>
 </section>
