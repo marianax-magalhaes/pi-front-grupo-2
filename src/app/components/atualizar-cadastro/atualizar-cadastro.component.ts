@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/models/Cliente';
 import { Telefone } from 'src/app/models/Telefone';
+
 import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
+
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-atualizar-cadastro',
@@ -15,10 +19,11 @@ export class AtualizarCadastroComponent implements OnInit {
     tipo: ""
   }
 
+
   form: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private service:ClienteService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -35,22 +40,26 @@ export class AtualizarCadastroComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSubmit(): void {
-    this.submitted = true;
-
-    if (this.form.invalid) {
+onSubmit(cliente:Cliente){
+  this.submitted = true;
+  if (this.form.invalid) {
       return;
     }
+  console.log(cliente);
+  
+  console.log(JSON.stringify(this.form.value, null, 2));
+    
+  this.service.atualizarCliente(cliente).subscribe(
+    {
+    next: data =>{
+      
+      console.log(data);
 
-    console.log(JSON.stringify(this.form.value, null, 2));
-  }
-
-
-  track(index:number, value:string) {
-    return index;
-  }
-
-
+      },
+    error: err => console.log(err),
+    complete: () => console.log("Observável finalizado")
+    });
+}
 
 
 

@@ -1,12 +1,7 @@
 <section id="modal">
-  <article>
-    <img
-      class="fechar"
-      (click)="cancelar()"
-      src="assets\Imagens\close.png"
-      alt="Botão de fechar aba"
-    />
-
+    <article>
+        <img class="fechar" (click)="cancelar()" src="assets\Imagens\close.png" alt="Botão de fechar aba" />
+      
     <figure>
       <img
         src="assets\Imagens\salom_logo_rosa.png"
@@ -15,7 +10,7 @@
     </figure>
 
     <div class="register-form">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form #clienteLogin="ngForm" [formGroup]="form" (ngSubmit)="onSubmit(clienteLogin.value)">
         <div class="form-group">
           <label> E-mail </label>
           <input
@@ -23,6 +18,7 @@
             formControlName="email"
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+            name="email" ngModel
           />
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
             <div *ngIf="f.email.errors.required">E-mail inválido</div>
@@ -37,6 +33,7 @@
             formControlName="senha"
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f.senha.errors }"
+            name="senha" ngModel
           />
 
           <div *ngIf="submitted && f.senha.errors" class="invalid-feedback">

@@ -16,9 +16,15 @@ export class ClienteService {
     return this.http.post(`${this.url}/usuario/cadastrar`, cliente).pipe(take(1));
   }
 
-  atualizarCliente(cliente:Cliente){
+  logarCliente(cliente:any){
+    
+    return this.http.post(`${this.url}/usuario/logar`, cliente).pipe(take(1));
+    
+  }
 
-    return this.http.put(this.url, cliente).pipe(take(1));
+  atualizarCliente(cliente:Cliente){
+    let token = window.sessionStorage.getItem('token');
+    return this.http.put<Cliente>(`${this.url}/usuario/atualizar`, cliente,{headers:{Authorization:`Bearer ${token}`}} ).pipe(take(1));
     
   }
 

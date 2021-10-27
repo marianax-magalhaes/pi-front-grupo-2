@@ -2,7 +2,7 @@
 
 <article>
   <div class="register-form">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
       <label> Nome completo </label>
       <input type="name" name="nome" id="nome" />
 
@@ -136,3 +136,4 @@
 </article>
 
 <app-footer></app-footer>
+   
