@@ -12,7 +12,7 @@ import Validation from 'src/app/utils/Validation';
 export class ModalCadastroComponent implements OnInit {
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
 
-  form: FormGroup;
+  form!: FormGroup;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private service:ClienteService) {}

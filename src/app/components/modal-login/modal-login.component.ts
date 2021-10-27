@@ -23,7 +23,7 @@ export class ModalLoginComponent implements OnInit {
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
   @Output() onCadastrarClick:EventEmitter<null> = new EventEmitter();
 
-  form: FormGroup;
+  form!: FormGroup;
   submitted = false;
 
   constructor(
@@ -52,7 +52,7 @@ export class ModalLoginComponent implements OnInit {
   get f(): {[key: string]: AbstractControl} {
     return this.form.controls;
 
-    
+  }
   onSubmit(cliente:any){
     this.submitted = true;
     
@@ -77,4 +77,6 @@ export class ModalLoginComponent implements OnInit {
 
   }
  
-}
+  }
+
+

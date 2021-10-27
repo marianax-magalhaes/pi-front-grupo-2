@@ -20,19 +20,29 @@ export class AtualizarCadastroComponent implements OnInit {
   }
 
 
-  form: FormGroup;
+  form!: FormGroup;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder, private service:ClienteService) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      telefoneDDD: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-      telefoneNumero: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
-      telefoneTipo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]],
-      enderecoLogradouro: ['', [Validators.required]],
-      enderecoNumero: ['', [Validators.required]],
-      enderecoTipo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]]
+      nome:[''],
+      cpf: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
+      email:[''],
+      senha:[''],
+      telefone: this.formBuilder.group({
+        ddd: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+        numero: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+        tipo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]],
+      }),
+      endereco: this.formBuilder.group({
+        cep: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+        logradouro: ['', [Validators.required]],
+        numero: ['', [Validators.required]],
+        complemento: [''],
+        tipo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]]
+      })
     });
   }
 
