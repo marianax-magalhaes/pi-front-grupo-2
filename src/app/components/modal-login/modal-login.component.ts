@@ -1,7 +1,13 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { ClienteService } from 'src/app/services/cliente.service';
+
+interface response{
+  msg:string,
+  token: string
+}
 
 @Component({
   selector: 'app-modal-login',
@@ -9,6 +15,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./modal-login.component.css']
 })
 export class ModalLoginComponent implements OnInit {
+
+
 
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
   @Output() onCadastrarClick:EventEmitter<null> = new EventEmitter();
@@ -18,17 +26,10 @@ export class ModalLoginComponent implements OnInit {
     Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)])
   })
-
-  get f(){
-    return this.form.controls;
-  }
-
-  submit(){
-    console.log(this.form.value);
-  }
-
-  constructor() { }
-
+  constructor(
+    private service:ClienteService,
+    private router:Router
+    ) { }
   ngOnInit(): void {
   }
 
@@ -41,4 +42,34 @@ export class ModalLoginComponent implements OnInit {
     this.onCancelarClick.emit();
   }
 
-}
+  get f(){
+    return this.form.controls;
+  }
+
+  submit(){
+    console.log(this.form.value);
+  }
+
+  onSubmit(cliente:any){
+    console.log(cliente);
+    
+    this.service.logarCliente(cliente).subscribe(
+      {
+      next: data =>{
+        window.sessionStorage.setItem("token", (<response>data).token);
+        this.router.navigateByUrl("/atualizar-cadastro");
+        console.log(data);
+
+        },
+      error: err => console.log(err),
+      complete: () => console.log("Observável finalizado")
+      });
+  }
+
+  }
+
+  
+
+
+
+

@@ -1,30 +1,22 @@
 <section id="modal">
-  <article>
-    <img
-      class="fechar"
-      (click)="cancelar()"
-      src="assets\Imagens\close.png"
-      alt="Botão de fechar aba"
-    />
+    <article>
+        <img class="fechar" (click)="cancelar()" src="assets\Imagens\close.png" alt="Botão de fechar aba" />
 
-    <figure>
-      <img
-        src="assets\Imagens\salom_logo_rosa.png"
-        alt="Logo Salom (uma fatia de bolo)"
-      />
-    </figure>
-    <form>
-      <label> E-mail </label>
-      <input type="email" name="email" id="email" />
+        <figure>
+            <img src="assets\Imagens\salom_logo_rosa.png" alt="Logo Salom (uma fatia de bolo)" />
+        </figure>
+        <form #clienteLogin="ngForm" (ngSubmit)="onSubmit(clienteLogin.value)">
+            <label> E-mail </label>
+            <input type="email" name="email" id="email" ngModel />
 
-      <label> Senha </label>
-      <input type="password" name="senha" id="senha" />
+            <label> Senha </label>
+            <input type="password" name="senha" id="senha" ngModel />
 
-      <div class="controles">
-        <p type="button" (click)="cadastrar()">Criar uma conta</p>
+            <div class="controles">
+                <p type="button" (click)="cadastrar()">Criar uma conta</p>
 
-        <button>Entrar</button>
-      </div>
-    </form>
-  </article>
+                <button type="submit">Entrar</button>
+            </div>
+        </form>
+    </article>
 </section>

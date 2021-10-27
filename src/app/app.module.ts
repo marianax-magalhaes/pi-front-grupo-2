@@ -13,7 +13,6 @@ import { ModalLoginComponent } from './components/modal-login/modal-login.compon
 import { ModalCadastroComponent } from './components/modal-cadastro/modal-cadastro.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 
 import { AtualizarCadastroComponent } from './components/atualizar-cadastro/atualizar-cadastro.component';
 import { HomeComponent } from './components/home/home.component';
@@ -40,9 +39,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     IvyCarouselModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    
   ],
   providers: [ ],
   bootstrap: [AppComponent]

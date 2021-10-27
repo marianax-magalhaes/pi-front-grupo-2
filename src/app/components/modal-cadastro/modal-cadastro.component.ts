@@ -19,10 +19,13 @@ export class ModalCadastroComponent implements OnInit {
     console.log(cliente);
     
     this.service.criarCliente(cliente).subscribe(
-      data =>{
+      {
+      next: data =>{
         console.log(data);
-        }
-    )
+        },
+      error: err => console.log(err),
+      complete: () => console.log("Observável finalizado")
+      });
   }
 
   cancelar(){
