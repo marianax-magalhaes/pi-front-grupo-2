@@ -11,6 +11,7 @@ import Validation from 'src/app/utils/Validation';
 })
 export class ModalCadastroComponent implements OnInit {
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
+  @Output() onLogarClick:EventEmitter<null> = new EventEmitter();
 
   form!: FormGroup;
   submitted = false;
@@ -27,6 +28,11 @@ export class ModalCadastroComponent implements OnInit {
     {
     validators: [Validation.match('senha', 'confirmarSenha')]
     });
+  }
+
+  logar(){
+    this.onCancelarClick.emit();
+    this.onLogarClick.emit();
   }
 
   get f(): {[key: string]: AbstractControl} {
@@ -47,6 +53,7 @@ export class ModalCadastroComponent implements OnInit {
     this.service.criarCliente(cliente).subscribe(
       {
       next: data =>{
+        this.logar();
         console.log(data);
         },
       error: err => console.log(err),

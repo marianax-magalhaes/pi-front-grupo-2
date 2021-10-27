@@ -44,8 +44,8 @@ export class ModalLoginComponent implements OnInit {
   }
 
   cadastrar(){
-    this.onCadastrarClick.emit();
     this.onCancelarClick.emit();
+    this.onCadastrarClick.emit();
   }
 
 
