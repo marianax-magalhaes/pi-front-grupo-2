@@ -3,4 +3,5 @@ export interface Endereco{
     numero:string;
     complemento?:string;
     cep:string;
+    tipo:string;
 }
