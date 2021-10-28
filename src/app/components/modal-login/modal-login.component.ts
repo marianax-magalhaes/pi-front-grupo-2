@@ -49,7 +49,7 @@ export class ModalLoginComponent implements OnInit {
   }
 
 
-  get f(): {[key: string]: AbstractControl} {
+  get campoForm(): {[key: string]: AbstractControl} {
     return this.form.controls;
 
   }

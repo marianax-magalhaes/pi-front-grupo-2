@@ -35,7 +35,7 @@ export class ModalCadastroComponent implements OnInit {
     this.onLogarClick.emit();
   }
 
-  get f(): {[key: string]: AbstractControl} {
+  get campoForm(): {[key: string]: AbstractControl} {
     return this.form.controls;
   }
 
