@@ -61,12 +61,12 @@ article form .endereco {
 }
 
 article form .endereco .cep {
-  width: 21%;
+  width: 22%;
   margin: 0 0.5em 0 0;
 }
 
 article form .endereco .logradouro {
-  width: 62%;
+  width: 61%;
   margin: 0 0.5em 0 0;
 }
 
