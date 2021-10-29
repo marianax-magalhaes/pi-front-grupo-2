@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  // Atributos da classe  
   mostrandoLogin = false;
   mostrandoCadastro = false;
+  mostrandoProduto = false;
 
+  // Métodos da classe
   mostrarLogin(){
     this.mostrandoLogin = true;
   }
@@ -31,6 +33,16 @@ export class HomeComponent implements OnInit {
 
   esconderCadastro(){
     this.mostrandoCadastro = false;
+  }
+
+  mostrarProduto(){
+    // Alterando atributo para mostrar o modal
+    this.mostrandoProduto = true;
+  }
+
+  esconderProduto(){
+    // Alterando atributo para mostrar o modal
+    this.mostrandoProduto = false;
   }
 
 }
