@@ -13,10 +13,7 @@
 <!-- mostrandoProduto inicialmente false (modal não mostrado)
   Monitorando evento click para mostrar modal
   Se evento emitido, mostrandoProduto=true e modal é exibido -->
-<app-modal-produto
-  (onMostrarProdutoClick)="mostrarProduto()"
-  *ngIf="mostrandoProduto">
-</app-modal-produto>
+<app-modal-produto *ngIf="mostrandoProduto"></app-modal-produto>
 <app-carousel></app-carousel>
 <app-about></app-about>
 <app-list-products></app-list-products>

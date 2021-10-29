@@ -1,4 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from "src/app/services/produto.service";
 
 @Component({
   selector: 'app-product',
@@ -7,16 +8,13 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  // Configurando emissor de evento para mostrar Modal Produto
-  @Output() onMostrarProdutoClick:EventEmitter<null> = new EventEmitter();
-
-  constructor() { }
+  constructor(private produtoService:ProdutoService) { }
 
   ngOnInit(): void {
   }
 
   mostrarProduto() {
-    this.onMostrarProdutoClick.emit();
+    this.produtoService.sendClick();
+    console.log("Mostrando modal Produto por Componente Produto");
   }
-
 }

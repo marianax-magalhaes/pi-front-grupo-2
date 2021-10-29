@@ -28,7 +28,7 @@
         <p> R$ 60,00 </p>
       </div>
 <!-- caixinha para selecionar a quantidade -->
-<div class="form-group">
+<div class="quantidade">
     <!-- imagem do sinal (-) -->
   <figure>
       <img
@@ -44,26 +44,26 @@
         alt="sinal de aumentar quantidade do produto"
       />
     </figure>
-  <div
+  <!-- <div
     *ngIf="submitted && campoForm.nome.errors"
     class="invalid-feedback"
   >
     <div *ngIf="campoForm.nome.errors.required">Nome inválido</div>
-  </div>
+  </div> -->
 </div>
 
 
 <!-- caixinha com valor total do produto -->
-<div class="form-group">
+<div class="total">
 
 <label> Total do Produto </label>
 
-<div
+<!-- <div
   *ngIf="submitted && campoForm.nome.errors"
   class="invalid-feedback"
 >
   <div ngIf="campoForm.nome.errors.required">**</div>
-</div>
+</div> -->
 </div>
 
   <!-- botao de adicionar produto e quantidade ao carrinho -->
