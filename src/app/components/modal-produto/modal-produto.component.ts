@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Produto } from "src/app/models/Produto";
+import { ProdutoService } from "src/app/services/produto.service"
 
 @Component({
   selector: 'app-modal-produto',
@@ -7,18 +7,19 @@ import { Produto } from "src/app/models/Produto";
   styleUrls: ['./modal-produto.component.css']
 })
 export class ModalProdutoComponent implements OnInit {
-  // Configurando emissor de evento para fechar Modal Produto
-  @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
+  
+  // clickSubscription!:Subscription;
 
-  constructor() { }
+  constructor(private produtoService:ProdutoService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   cancelar() {
     // Disparando o evento para fechar o Modal Produto
     // Atributo mostrandoProduto do componente HOME setado para FALSE
-    this.onCancelarClick.emit();
+    // this.onCancelarClick.emit();
+    this.produtoService.sendClick();
+    console.log("Mostrando modal Produto por Componente Produto");
   }
 
 }
