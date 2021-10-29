@@ -1,0 +1,75 @@
+<section id="modal-produto">
+    <article>
+        <!-- botao de fechar -->
+      <img
+        class="fechar"
+        (click)="cancelar()"
+        src="assets\Imagens\close.png"
+        alt="Botão de fechar aba"
+      />
+        <!-- Nome do produto -->
+      <div class="nome-produto">
+        <p> Nome do Produto </p>
+      </div>  
+      <!-- imagem do produto -->
+      <figure>
+        <img
+          src="assets\Imagens\Frisales.png"
+          alt="Copinho de Frisales"
+        />
+      </figure>
+      <!-- descricao do produto -->
+      <div class="descricao-produto">
+        <p> Copinho de Chocolate branco recheado de creme de baunilha com frisales</p>
+      </div>  
+      <!-- descricao da quantidade -->
+      <div class="descricao-quantidade">
+        <p> Kit de 20 unidades </p>
+        <p> R$ 60,00 </p>
+      </div>
+<!-- caixinha para selecionar a quantidade -->
+<div class="form-group">
+    <!-- imagem do sinal (-) -->
+  <figure>
+      <img
+        src=""
+        alt="sinal de diminuir quantidade do produto"
+      />
+    </figure>
+  <label> Quantidade </label>
+  <!-- imagem do sinal (+) -->
+  <figure>
+      <img
+        src=""
+        alt="sinal de aumentar quantidade do produto"
+      />
+    </figure>
+  <div
+    *ngIf="submitted && campoForm.nome.errors"
+    class="invalid-feedback"
+  >
+    <div *ngIf="campoForm.nome.errors.required">Nome inválido</div>
+  </div>
+</div>
+
+
+<!-- caixinha com valor total do produto -->
+<div class="form-group">
+
+<label> Total do Produto </label>
+
+<div
+  *ngIf="submitted && campoForm.nome.errors"
+  class="invalid-feedback"
+>
+  <div ngIf="campoForm.nome.errors.required">**</div>
+</div>
+</div>
+
+  <!-- botao de adicionar produto e quantidade ao carrinho -->
+  <div class="adicionar-produto">
+      <button type="submit">Adicionar ao Carrinho</button>
+  </div>
+         
+</article>
+</section>

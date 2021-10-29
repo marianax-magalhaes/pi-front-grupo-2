@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AtualizarCadastroComponent } from './components/atualizar-cadastro/atualizar-cadastro.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalProdutoComponent } from './components/modal-produto/modal-produto.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModalCadastroComponent,
     AtualizarCadastroComponent,
     HomeComponent,
+    ModalProdutoComponent,
   ],
   imports: [
     BrowserModule,
