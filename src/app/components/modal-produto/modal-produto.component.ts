@@ -8,7 +8,8 @@ import { ProdutoService } from "src/app/services/produto.service"
 })
 export class ModalProdutoComponent implements OnInit {
   
-  // clickSubscription!:Subscription;
+  //valor inicial do input "quantidade"
+  valor: number = 0;
 
   constructor(private produtoService:ProdutoService) { }
 
@@ -22,4 +23,17 @@ export class ModalProdutoComponent implements OnInit {
     console.log("Mostrando modal Produto por Componente Produto");
   }
 
+  //incremento da quantidade
+  mais(){
+    this.valor++;
+  }
+
+  //decremento da quantidade
+  menos(){
+    this.valor--;
+  }
+
+  total(){
+    return `Total R$ ${this.valor*60}`;
+  }
 }
