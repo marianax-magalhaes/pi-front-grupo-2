@@ -16,7 +16,6 @@ header article {
 
 .navbar-nav .nav-link{
   padding: 5px 10px;
-  color: white;
 }
 
 /* Referente as imagens de Whats e Inst */
@@ -85,8 +84,10 @@ header article nav a img {
   }
   .logo-menu{
     display:flex;
-    justify-content: space-between;
+    /* center ate descobrir oq ta empurrando a pag p lado, suspeito estar no footer */
+    justify-content: center;
     align-items: center;
+    
   }
 
 }
