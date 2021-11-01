@@ -30,7 +30,9 @@ export class ModalProdutoComponent implements OnInit {
 
   //decremento da quantidade
   menos(){
-    this.valor--;
+    if(this.valor>0) {
+      this.valor--;
+    }
   }
 
   total(){

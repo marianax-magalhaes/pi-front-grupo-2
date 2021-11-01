@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,8 @@ import { AtualizarCadastroComponent } from './components/atualizar-cadastro/atua
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalProdutoComponent } from './components/modal-produto/modal-produto.component';
+import { CartComponent } from './components/cart/cart.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import { ModalProdutoComponent } from './components/modal-produto/modal-produto.
     AtualizarCadastroComponent,
     HomeComponent,
     ModalProdutoComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { ModalProdutoComponent } from './components/modal-produto/modal-produto.
     FormsModule, 
     ReactiveFormsModule,
     HttpClientModule,
-    
+    CommonModule,
+    FontAwesomeModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]
