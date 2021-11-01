@@ -1,5 +1,8 @@
 export interface Produto {
+    produtoId: string;
     nome: string;
     descricao: string;
-    preco: number
+    preco: number;
+    quantidade: number;
+    isComprado: boolean;
 }
