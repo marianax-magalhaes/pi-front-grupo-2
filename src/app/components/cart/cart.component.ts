@@ -7,11 +7,19 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 // Formulário com os Produtos
 import { FormGroup, FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
+
+  // // Referente a data do pedido - 3 dias antes
+    // minDate() = new Date();
+    // maxDate() = new Date(2021, 11, 12);
+
+
 export class CartComponent implements OnInit {
 
   // Controlando o ícone Comprado/Não comprado
@@ -39,8 +47,9 @@ export class CartComponent implements OnInit {
       // preco: new FormControl(),
       isComprado: new FormControl(),
     });
-  }
 
+  }
+  
   CadastrarProduto(): void {
     this.formulario.value.produtoId = Guid.create().toString();
     this.formulario.value.isComprado = false;
