@@ -19,6 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalProdutoComponent } from './components/modal-produto/modal-produto.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import{ MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 
 
 @NgModule({
@@ -45,9 +50,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule 
   ],
-  providers: [ ],
+
+ 
+  
+  providers: [  MatDatepickerModule,  MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
