@@ -34,6 +34,7 @@ export class CartComponent implements OnInit {
     const DATAATUAL = new Date();
     this.minDate = new Date(DATAATUAL.getDate()+3);
     this.maxDate = new Date(DATAATUAL.getDate()+90);
+
    }
 
   ngOnInit(): void {
@@ -51,7 +52,6 @@ export class CartComponent implements OnInit {
       preco: new FormControl(),
       isComprado: new FormControl(),
     });
-
   }
   
   CadastrarProduto(): void {
