@@ -53,17 +53,25 @@
                         <tr class="thead-light">
                             <th>Nome</th>
                             <th>Quantidade</th>
-                            <th>Ações</th>
+                            <th>Total</th>
+                            <th>Remover</th>
                         </tr>
                         <!-- Produtos -->
                         <!-- Se isComprado=false, destacar a linha -->
                         <tr *ngFor="let produto of carrinho" [class.table-danger]="produto.isComprado == false">
                             <td>{{produto.nome}}</td>
+                            <!-- <td>{{produto.quantidade}}</td> -->
+                            <td>
+                                <div class="form-group">
+                                <input type="number" class="form-control form-control-sm"
+                                placeholder="Quantidade do produto" formControlName="quantidade"/>
+                                </div>
+                            </td>
                             <td>{{produto.quantidade}}</td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-outline-info rounded-circle" (click)="AtualizarProduto(produto.produtoId)">
+                                <button type="button" class="btn btn-sm btn-danger" (click)="RemoverProduto(produto.produtoId)">
                                     <!-- Ícone para marcar/desmarcar produto como comprado -->
-                                    <fa-icon [icon]="faCheckCircle"></fa-icon>
+                                    <i class="far fa-trash-alt"></i>
                                 </button>
                             </td>
                         </tr>
@@ -76,12 +84,13 @@
     </div>
 
 
-    <mat-form-field appearance="fill">
+    
+    <!-- <mat-form-field appearance="fill">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field> -->
       
 
 

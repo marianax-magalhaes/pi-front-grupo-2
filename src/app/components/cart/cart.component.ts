@@ -74,22 +74,29 @@ export class CartComponent implements OnInit {
     }
   }
 
-  AtualizarProduto(produtoId: string): void {
-    // Localizar produto no array (carrinho)
-    const INDICE: number = this.carrinho.findIndex(
-      (p) => p.produtoId === produtoId
-      );
-    // Verificar se o produto está marcado como comprado
-    // this.carrinho[INDICE].isComprado = !(this.carrinho[INDICE].isComprado);
+  // AtualizarProduto(produtoId: string): void {
+  //   // Localizar produto no array (carrinho)
+  //   const INDICE: number = this.carrinho.findIndex(
+  //     (p) => p.produtoId === produtoId
+  //     );
+  //   // Verificar se o produto está marcado como comprado
+  //   // this.carrinho[INDICE].isComprado = !(this.carrinho[INDICE].isComprado);
     
-    if(this.carrinho[INDICE].isComprado) {
-      this.carrinho[INDICE].isComprado = false;
-    } else {
-      this.carrinho[INDICE].isComprado = true;
-    }
+  //   if(this.carrinho[INDICE].isComprado) {
+  //     this.carrinho[INDICE].isComprado = false;
+  //   } else {
+  //     this.carrinho[INDICE].isComprado = true;
+  //   }
 
-    // Gravando alterações no LocalStorage
-    localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
-  }
+  //   // Gravando alterações no LocalStorage
+  //   localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
+  // }
 
+  RemoverProduto(produtoId: string) {
+   const INDICE: number = this.carrinho.findIndex(p => p.produtoId === produtoId)
+       
+      this.carrinho.splice(INDICE, 1);
+      localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
+   
+ }
 }
