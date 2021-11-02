@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produto';
 // Atribuir um ID apara o Produto
 import { Guid } from 'guid-typescript';
@@ -6,19 +6,15 @@ import { Guid } from 'guid-typescript';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 // Formulário com os Produtos
 import { FormGroup, FormControl } from '@angular/forms';
+// Imports do Controle de Calendário
 
+// @NgModule ??
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-
-
-  // // Referente a data do pedido - 3 dias antes
-    // minDate() = new Date();
-    // maxDate() = new Date(2021, 11, 12);
-
 
 export class CartComponent implements OnInit {
 
@@ -29,8 +25,16 @@ export class CartComponent implements OnInit {
   // Criando o formulário que armazenará os Produtos
   // Inicialmente não tem um tipo definido
   formulario:any;
+  // Definindo datas mínima e máxima para agendamento
+  minDate:Date;
+  maxDate:Date;
 
-  constructor() { }
+  constructor() {
+    // Recuperando o ano atual
+    const DATAATUAL = new Date();
+    this.minDate = new Date(DATAATUAL.getDate()+3);
+    this.maxDate = new Date(DATAATUAL.getDate()+90);
+   }
 
   ngOnInit(): void {
     // Exibir dados do carrinho no LocalStorage
@@ -44,7 +48,7 @@ export class CartComponent implements OnInit {
       nome: new FormControl(),
       quantidade: new FormControl(),
       // descricao: new FormControl(),
-      // preco: new FormControl(),
+      preco: new FormControl(),
       isComprado: new FormControl(),
     });
 
@@ -74,20 +78,40 @@ export class CartComponent implements OnInit {
     }
   }
 
-  AtualizarProduto(produtoId: string): void {
+  RemoverProduto(produtoId: string): void {
     // Localizar produto no array (carrinho)
     const INDICE: number = this.carrinho.findIndex(
       (p) => p.produtoId === produtoId
       );
-    // Verificar se o produto está marcado como comprado
-    // this.carrinho[INDICE].isComprado = !(this.carrinho[INDICE].isComprado);
-    
-    if(this.carrinho[INDICE].isComprado) {
-      this.carrinho[INDICE].isComprado = false;
-    } else {
-      this.carrinho[INDICE].isComprado = true;
-    }
+ 
+    this.carrinho.splice(INDICE,1);
 
+    // Gravando alterações no LocalStorage
+    localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
+  }
+
+  //incremento da quantidade
+  IncrementarQuantidade(produtoId: string): void{
+    // Localizar produto no array (carrinho)
+    const INDICE: number = this.carrinho.findIndex(
+      (p) => p.produtoId === produtoId
+      );
+    //Incrementar a quantidade
+    this.carrinho[INDICE].quantidade++;
+    // Gravando alterações no LocalStorage
+    localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
+  }
+
+  //decremento da quantidade
+  DecrementarQuantidade(produtoId: string): void{
+    // Localizar produto no array (carrinho)
+    const INDICE: number = this.carrinho.findIndex(
+      (p) => p.produtoId === produtoId
+      );
+    //Incrementar a quantidade
+    if(this.carrinho[INDICE].quantidade>0) {
+      this.carrinho[INDICE].quantidade--;
+    }
     // Gravando alterações no LocalStorage
     localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
   }
