@@ -19,10 +19,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalProdutoComponent } from './components/modal-produto/modal-produto.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
@@ -63,9 +65,9 @@ registerLocaleData(ptBr)
     CommonModule,
     FontAwesomeModule,
     MatDatepickerModule,
-    MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatCardModule,

@@ -32,8 +32,10 @@ export class CartComponent implements OnInit {
   constructor() {
     // Recuperando o ano atual
     const DATAATUAL = new Date();
-    this.minDate = new Date(DATAATUAL.getDate()+3);
-    this.maxDate = new Date(DATAATUAL.getDate()+90);
+    // Data mínima para pedido: 3 dias corridos da data atual
+    this.minDate = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+3);
+    // Data máxima para pedido: 30 dias corridos da data atual
+    this.maxDate = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+30);
    }
 
   ngOnInit(): void {
