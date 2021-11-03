@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AtualizarCadastroComponent } from './components/atualizar-cadastro/atualizar-cadastro.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HomeComponent } from './components/home/home.component';
+import { OrderComponent } from './components/order/order.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path: "carrinho", component: CartComponent    
+  },
+  {
+    path: "pedido", component: OrderComponent
   }];
 
 @NgModule({
