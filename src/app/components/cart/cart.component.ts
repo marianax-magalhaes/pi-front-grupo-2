@@ -28,6 +28,9 @@ export class CartComponent implements OnInit {
   // Definindo datas mínima e máxima para agendamento
   minDate:Date;
   maxDate:Date;
+  // Controlando o total da compra
+  subTotalCompra:number;
+  frete:number;
 
   constructor() {
     // Recuperando o ano atual
@@ -36,6 +39,9 @@ export class CartComponent implements OnInit {
     this.minDate = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+3);
     // Data máxima para pedido: 30 dias corridos da data atual
     this.maxDate = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+30);
+    // Inicializando o total da compra
+    this.subTotalCompra=0;
+    this.frete=40;
    }
 
   ngOnInit(): void {
@@ -63,8 +69,11 @@ export class CartComponent implements OnInit {
     const PRODUTO: Produto = this.formulario.value;
     // Adicionar o produto do formulário ao carrinho
     this.carrinho.push(PRODUTO);
+    // Atualizar total da compra
+    this.AtualizarTotalCompra();
     // Armazenando dados no Local Storage
     localStorage.setItem("carrinho", JSON.stringify(this.carrinho));
+    // Atualizar o valor da compra
     // Resetando o formulário
     this.formulario.reset();
   }
@@ -74,6 +83,8 @@ export class CartComponent implements OnInit {
     if(localStorage.getItem("carrinho")) {
       // Adicionar produtos do carrinho no array de produtos (atributo "carrinho")
       this.carrinho = JSON.parse(localStorage.getItem("carrinho"));
+      // Atualizar total da compra
+      this.AtualizarTotalCompra();
     } else {
       // Carrinho não existe no LocalStorage. Inicializar array.
       this.carrinho = [];
@@ -87,7 +98,8 @@ export class CartComponent implements OnInit {
       );
  
     this.carrinho.splice(INDICE,1);
-
+    // Atualizar total da compra
+    this.AtualizarTotalCompra();
     // Gravando alterações no LocalStorage
     localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
   }
@@ -100,6 +112,8 @@ export class CartComponent implements OnInit {
       );
     //Incrementar a quantidade
     this.carrinho[INDICE].quantidade++;
+    // Atualizar total da compra
+    this.AtualizarTotalCompra();
     // Gravando alterações no LocalStorage
     localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
   }
@@ -114,8 +128,20 @@ export class CartComponent implements OnInit {
     if(this.carrinho[INDICE].quantidade>0) {
       this.carrinho[INDICE].quantidade--;
     }
+    // Atualizar total da compra
+    this.AtualizarTotalCompra();
     // Gravando alterações no LocalStorage
     localStorage.setItem("carrinho",JSON.stringify(this.carrinho));
+  }
+
+  AtualizarTotalCompra(): void {
+    // Reinicializar totalCompra
+    this.subTotalCompra=0; 
+    this.carrinho.forEach(produto => {
+      // Atualizando o valor da compra
+      this.subTotalCompra=this.subTotalCompra+(produto.quantidade*produto.preco);  
+    });
+
   }
 
 }

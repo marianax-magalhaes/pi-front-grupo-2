@@ -3,7 +3,7 @@
 <div class="container mt-5 mb-5">
     <div class="container shadow p-5">
         <div class="p-5 border border-light rounded">
-            <h6>Carrinho de Compras</h6>
+            <h2>Carrinho de Compras</h2>
             <hr>
             <!-- Tabela com os itens do carrinho -->
             <div class="container">
@@ -46,21 +46,22 @@
                         </tr>
                     </table>
                 </div>
-
+                <hr>
                 <div>            
-                    SubTotal<br>
-                    CEP: 00000-000 Frete<br>
-                    Total do Pedido<br>
-                
+                    SubTotal: {{subTotalCompra | currency:"BRL"}}
+                    Frete: {{frete | currency:"BRL"}}
+                    Total do Pedido: {{subTotalCompra+frete | currency:"BRL"}}
+                    <hr>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Agende a entrega</mat-label>
                         <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
-
                 </div>
-            
+                <div class="fechar-pedido">
+                    <button type="submit">Fechar Pedido</button>
+                </div>            
             </div>
 
         </div>
