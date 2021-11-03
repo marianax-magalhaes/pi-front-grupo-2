@@ -47,10 +47,12 @@
                     </table>
                 </div>
                 <hr>
-                <div>            
-                    SubTotal: {{subTotalCompra | currency:"BRL"}}
-                    Frete: {{frete | currency:"BRL"}}
-                    Total do Pedido: {{subTotalCompra+frete | currency:"BRL"}}
+                <div>
+                    <div class="totalizacao">
+                        <div>SubTotal: {{subTotalCompra | currency:"BRL"}}</div>
+                        <div>Frete: {{frete | currency:"BRL"}}</div>                         
+                        <div>Total do Pedido: {{subTotalCompra+frete | currency:"BRL"}}</div>                        
+                    </div>                    
                     <hr>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Agende a entrega</mat-label>
