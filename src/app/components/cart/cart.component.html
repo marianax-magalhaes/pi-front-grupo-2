@@ -56,13 +56,17 @@
                     <hr>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Agende a entrega</mat-label>
-                        <input matInput [(ngModel)]="agendamento" [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+                        <input 
+                            matInput [(ngModel)]="agendamento" 
+                            [min]="minDate" 
+                            [max]="maxDate" 
+                            [matDatepicker]="picker">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </div>
                 <div class="fechar-pedido">
-                    <button type="submit" (click)="GerarPedido()">Fechar Pedido</button>
+                    <button type="submit" (click)="GerarPedido()" routerLink="/pedido">Continuar</button>
                 </div>            
             </div>
 

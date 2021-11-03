@@ -73,7 +73,14 @@ export class OrderComponent implements OnInit {
     // Verificando se Agendamento existe no LocalStorage
     if(localStorage.getItem("entrega")) {
       // Adicionar produtos do carrinho no array de produtos (atributo "carrinho")
-      this.agendamento = JSON.parse(localStorage.getItem("entrega"));
+      if(localStorage.getItem("entrega")=="undefined") {
+        const DATAATUAL = new Date();
+        this.agendamento = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+3);
+        // Armazenando agendamento de entrega no Local Storage
+        localStorage.setItem("entrega", JSON.stringify(this.agendamento));
+      } else {
+        this.agendamento = JSON.parse(localStorage.getItem("entrega"));
+      }
     } else {
       // Agendamento não existe no LocalStorage. 
       // Inicializar com regra de negócio: Data Atual + 3 dias corridos
@@ -81,6 +88,8 @@ export class OrderComponent implements OnInit {
       const DATAATUAL = new Date();
       // Data mínima para pedido: 3 dias corridos da data atual
       this.agendamento = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+3);
+      // Armazenando agendamento de entrega no Local Storage
+      localStorage.setItem("entrega", JSON.stringify(this.agendamento));
     }    
   }
 }
