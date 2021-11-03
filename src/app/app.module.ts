@@ -23,6 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+// import { calcularPrecoPrazo } from 'correios-brasil';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import ptBr from '@angular/common/locales/pt';
+import { OrderComponent } from './components/order/order.component';
 registerLocaleData(ptBr)
 
 @NgModule({
@@ -54,6 +56,7 @@ registerLocaleData(ptBr)
     HomeComponent,
     ModalProdutoComponent,
     CartComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

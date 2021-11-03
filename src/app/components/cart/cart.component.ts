@@ -6,9 +6,7 @@ import { Guid } from 'guid-typescript';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 // Formulário com os Produtos
 import { FormGroup, FormControl } from '@angular/forms';
-// Imports do Controle de Calendário
 
-// @NgModule ??
 
 @Component({
   selector: 'app-cart',
@@ -28,12 +26,17 @@ export class CartComponent implements OnInit {
   // Definindo datas mínima e máxima para agendamento
   minDate:Date;
   maxDate:Date;
+  // Data de entrega agendada
+  agendamento!:Date;
   // Controlando o subtotal da compra
   subTotalCompra:number;
   // Calculando o frete
   frete:number;
   // Gravando a data de agendamento
   // agendamento!:Date;
+  // Configurando CEPs para cálculo do frete
+  cepOrigem:string;
+  cepDestino:string;
 
   constructor() {
     // Recuperando o ano atual
@@ -46,6 +49,9 @@ export class CartComponent implements OnInit {
     this.subTotalCompra=0;
     // Inicializando o frete
     this.frete=40;
+    // Inicialiando CEPs para cálculo do frete
+    this.cepOrigem="13140-798";
+    this.cepDestino="13150-000";
    }
 
   ngOnInit(): void {
@@ -145,6 +151,15 @@ export class CartComponent implements OnInit {
       this.subTotalCompra=this.subTotalCompra+(produto.quantidade*produto.preco);  
     });
 
+  }
+
+  GerarPedido(): void {
+    // Armazenando agendamento de entrega no Local Storage
+    localStorage.setItem("entrega", JSON.stringify(this.agendamento));
+  }
+
+  CalcularFrete(): void {
+    // calcularPrecoPrazo = require('correios-brasil');
   }
 
 }
