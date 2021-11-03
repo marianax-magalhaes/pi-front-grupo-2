@@ -28,9 +28,12 @@ export class CartComponent implements OnInit {
   // Definindo datas mínima e máxima para agendamento
   minDate:Date;
   maxDate:Date;
-  // Controlando o total da compra
+  // Controlando o subtotal da compra
   subTotalCompra:number;
+  // Calculando o frete
   frete:number;
+  // Gravando a data de agendamento
+  // agendamento!:Date;
 
   constructor() {
     // Recuperando o ano atual
@@ -41,6 +44,7 @@ export class CartComponent implements OnInit {
     this.maxDate = new Date(DATAATUAL.getFullYear(),DATAATUAL.getMonth(),DATAATUAL.getDay()+30);
     // Inicializando o total da compra
     this.subTotalCompra=0;
+    // Inicializando o frete
     this.frete=40;
    }
 

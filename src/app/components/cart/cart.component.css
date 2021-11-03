@@ -8,6 +8,12 @@ h2 {
     font-size: 3.6em;
   }
 
+.totalizacao{
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+}
+
 .fechar-pedido{
     text-align: center;
     margin-top: 5px;
