@@ -5,7 +5,7 @@ import { Guid } from 'guid-typescript';
 // Ícone para marcar comprado/não comprado
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 // Formulário com os Produtos
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -38,7 +38,9 @@ export class CartComponent implements OnInit {
   cepOrigem:string;
   cepDestino:string;
 
-  constructor() {
+  form!:FormGroup;
+
+  constructor(private formBuilder:FormBuilder) {
     // Recuperando o ano atual
     const DATAATUAL = new Date();
     // Data mínima para pedido: 3 dias corridos da data atual
@@ -55,8 +57,13 @@ export class CartComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    this.form=this.formBuilder.group({agendamento: [Validators.required]});
+
     // Exibir dados do carrinho no LocalStorage
     this.ExibirProdutos();
+    // Verificar se já havia sido definido agendamento
+    this.VerificarAgendamento();
     // Instanciando o formulário
     this.formulario = new FormGroup({
       // Incluindo os campos do Produto
@@ -151,6 +158,17 @@ export class CartComponent implements OnInit {
       this.subTotalCompra=this.subTotalCompra+(produto.quantidade*produto.preco);  
     });
 
+  }
+
+  VerificarAgendamento(): void {
+    // Verificando se Agendamento existe no LocalStorage
+    // Se estiver editando o carrinho, carregar o agendamento definido anteriormente
+    if(localStorage.getItem("entrega")) {
+      // Adicionar produtos do carrinho no array de produtos (atributo "carrinho")
+      if(!(localStorage.getItem("entrega")=="undefined")) {
+        this.agendamento = JSON.parse(localStorage.getItem("entrega"));
+      } 
+    }    
   }
 
   GerarPedido(): void {
