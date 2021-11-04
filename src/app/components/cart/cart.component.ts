@@ -5,8 +5,8 @@ import { Guid } from 'guid-typescript';
 // Ícone para marcar comprado/não comprado
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 // Formulário com os Produtos
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-
+import { FormGroup, FormControl, Validators, FormBuilder, Validator } from '@angular/forms';
+import { AppCustomDirective } from './app.validators';
 
 @Component({
   selector: 'app-cart',
@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   // Controlando o ícone Comprado/Não comprado
   faCheckCircle = faCheckCircle;
   // Criando o array de Produtos
-  carrinho: Produto[];
+  carrinho!: Produto[];
   // Criando o formulário que armazenará os Produtos
   // Inicialmente não tem um tipo definido
   formulario:any;
@@ -38,9 +38,9 @@ export class CartComponent implements OnInit {
   cepOrigem:string;
   cepDestino:string;
 
-  form!:FormGroup;
+  DaterForm!: FormGroup;
 
-  constructor(private formBuilder:FormBuilder) {
+  constructor(private formBuilder:FormBuilder, private fb:FormBuilder) {
     // Recuperando o ano atual
     const DATAATUAL = new Date();
     // Data mínima para pedido: 3 dias corridos da data atual
@@ -58,8 +58,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.form=this.formBuilder.group({agendamento: [Validators.required]});
-
     // Exibir dados do carrinho no LocalStorage
     this.ExibirProdutos();
     // Verificar se já havia sido definido agendamento
@@ -76,8 +74,14 @@ export class CartComponent implements OnInit {
       preco: new FormControl(),
       isComprado: new FormControl(),
     });
+
+    this.DaterForm = this.fb.group(
+      {
+        FromDate:new FormControl()
+      }
+    )
   }
-  
+
   CadastrarProduto(): void {
     this.formulario.value.produtoId = Guid.create().toString();
     this.formulario.value.isComprado = false;
@@ -165,19 +169,31 @@ export class CartComponent implements OnInit {
     // Se estiver editando o carrinho, carregar o agendamento definido anteriormente
     if(localStorage.getItem("entrega")) {
       // Adicionar produtos do carrinho no array de produtos (atributo "carrinho")
-      if(!(localStorage.getItem("entrega")=="undefined")) {
+      if(!(localStorage.getItem("entrega")=="undefined" || localStorage.getItem("entrega")=="")) {
         this.agendamento = JSON.parse(localStorage.getItem("entrega"));
       } 
     }    
   }
 
-  GerarPedido(): void {
-    // Armazenando agendamento de entrega no Local Storage
-    localStorage.setItem("entrega", JSON.stringify(this.agendamento));
-  }
-
-  CalcularFrete(): void {
-    // calcularPrecoPrazo = require('correios-brasil');
-  }
-
+  VerificarCarrinho(): void {
+      // Verificar se existem itens no carrinho
+      if(this.carrinho.length>0) {
+        this.DaterForm = this.fb.group(
+          {
+            FromDate:['',[AppCustomDirective.fromDateValidator]]
+          }
+        )
+        if(localStorage.getItem("entrega")) {
+          // Adicionar produtos do carrinho no array de produtos (atributo "carrinho")
+          if(!(localStorage.getItem("entrega")==="undefined" || localStorage.getItem("entrega")==="")) {
+            this.agendamento = JSON.parse(localStorage.getItem("entrega"));
+            console.log("Ir para a fechamento do pedido");
+          }  
+        } else {
+          console.log("Agendamento não definido!");
+        }
+      } else {
+        console.log("Carrinho vazio!");
+      }
+    }
 }
