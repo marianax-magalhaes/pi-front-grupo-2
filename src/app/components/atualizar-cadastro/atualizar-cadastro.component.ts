@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/Cliente';
-import { Telefone } from 'src/app/models/Telefone';
+import { } from 'src/app/models/Endereco' 
 
 import { FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 
@@ -13,22 +13,40 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class AtualizarCadastroComponent implements OnInit {
 
-  novoTelefone:Telefone = {
-    ddd: "",
-    numero: "",
-    tipo: ""
-  }
-
-
   form!: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private service:ClienteService) {}
+  teste:string = "teste";
+  
+  mostrandoLogin = false;
+  mostrandoCadastro = false;
+  mostrandoProduto = false;
+
+  constructor(private formBuilder: FormBuilder, private service:ClienteService) {
+
+  }
 
   ngOnInit(): void {
+
+    this.service.consultarClientePorEmail(ClienteService.clienteLogado.email).subscribe(
+      {
+        next: cliente => {
+          console.log(cliente);
+          
+           ClienteService.clienteLogado.nome = cliente.nome;
+           ClienteService.clienteLogado.cpf = cliente.cpf;
+           ClienteService.clienteLogado.telefone = cliente.telefone;
+           ClienteService.clienteLogado.endereco = cliente.endereco;
+           console.log(ClienteService.clienteLogado.nome);
+           
+        },
+        error: err => console.error(err)
+      }
+    );
+   
     this.form = this.formBuilder.group({
-      nome:[''],
-      cpf: ['', [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
+      nome:[`${ClienteService.clienteLogado.nome}`],
+      cpf: [`${this.teste}`, [Validators.required, Validators.minLength(14), Validators.maxLength(14)]],
       email:[''],
       senha:[''],
       telefone: this.formBuilder.group({
@@ -44,8 +62,31 @@ export class AtualizarCadastroComponent implements OnInit {
         tipo: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(11)]]
       })
     });
+    console.log(ClienteService.clienteLogado);
+    console.log(ClienteService.clienteLogado.nome);
+    console.log(ClienteService.clienteLogado.cpf);
+    console.log(ClienteService.clienteLogado.endereco);
   }
 
+
+    
+  // Métodos da classe
+  mostrarLogin(){
+    this.mostrandoLogin = true;
+  }
+
+  esconderLogin(){
+    this.mostrandoLogin = false;
+  }
+  
+  mostrarCadastro(){
+    this.mostrandoLogin = false;
+    this.mostrandoCadastro = true;
+  }
+
+  esconderCadastro(){
+    this.mostrandoCadastro = false;
+  }
 
   // Acessando informações no formulário
   get campoForm(): {[key: string]: AbstractControl} {
@@ -66,9 +107,7 @@ onSubmit(cliente:Cliente){
   if (this.form.invalid) {
       return;
     }
-  console.log(cliente);
-  
-  console.log(JSON.stringify(this.form.value, null, 2));
+
     
   this.service.atualizarCliente(cliente).subscribe(
     {
@@ -77,11 +116,8 @@ onSubmit(cliente:Cliente){
       console.log(data);
 
       },
-    error: err => console.log(err),
-    complete: () => console.log("Observável finalizado")
+    error: err => console.log(err)
     });
 }
-
-
-
+  
 }

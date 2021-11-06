@@ -1,8 +1,8 @@
 export interface Produto {
-    produtoId: string;
+    id?: string;
     nome: string;
     descricao: string;
     preco: number;
-    quantidade: number;
-    isComprado: boolean;
+    imagemUrl: string;
+    quantidade?: number;
 }

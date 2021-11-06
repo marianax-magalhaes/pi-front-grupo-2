@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl} from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { Cliente } from 'src/app/models/Cliente';
 
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -18,11 +19,16 @@ interface response{
 })
 export class ModalLoginComponent implements OnInit {
 
+
+
   @Output() onCancelarClick:EventEmitter<null> = new EventEmitter();
   @Output() onCadastrarClick:EventEmitter<null> = new EventEmitter();
 
   form!: FormGroup;
-  submitted = false;
+  submitted: boolean = false;
+
+  falhou: boolean = false;
+
 
   constructor(
     private service:ClienteService,
@@ -66,15 +72,17 @@ export class ModalLoginComponent implements OnInit {
       next: data =>{
         window.sessionStorage.setItem("token", (<response>data).token);
         this.router.navigateByUrl("/atualizar-cadastro");
-        console.log(data);
-
+        // ClienteService.clienteLogado.email = (<response>data).email;
+       
+        console.log(ClienteService.clienteLogado);
         },
-      error: err => console.log(err),
-      complete: () => console.log("Observável finalizado")
+      error: err => {
+        console.log(err),
+        this.falhou = true
+      }
       });
 
   }
  
   }
-
 

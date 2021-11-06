@@ -100,7 +100,11 @@
         <div class="controles">
           <button type="submit">Cadastrar</button>
         </div>
+
+        <div *ngIf="falhou" class="fracasso">
+          <p>E-mail já cadastrado.</p>
+        </div>
       </form>
     </div>
-  </article> 
+  </article>
 </section>
